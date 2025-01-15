@@ -3,6 +3,7 @@ import { TodoService } from '../services/TodoService';
 import { Todo } from '../types/todo';
 import { Search, Plus, Moon, Sun } from 'lucide-react';
 import TodoItem from './TodoItem';
+import Button from './Button';
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -124,13 +125,12 @@ const TodoList: React.FC = () => {
                   : 'bg-gray-50 text-gray-800 border-gray-200'
               } border focus:outline-none focus:ring-2 focus:ring-blue-500`}
             />
-            <button
+            <Button
               type="submit"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex items-center gap-2"
-            >
-              <Plus size={20} />
-              Add Task
-            </button>
+              icon={<Plus size={20} />}
+              text="Add Task"
+              darkMode={darkMode}
+            />
           </form>
         </div>
 

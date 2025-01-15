@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Todo } from '../types/todo';
-import { Check, Trash2, Edit2, X, Save } from 'lucide-react';
+import { Trash2, Edit2, X, Save } from 'lucide-react';
+import Checkbox from './Checkbox';
 
 interface TodoItemProps {
   todo: Todo;
@@ -56,20 +57,11 @@ const TodoItem: React.FC<TodoItemProps> = ({
       onDrop={onDrop}
     >
       <div className="p-4 flex items-center gap-4">
-        <button
-          onClick={() => onToggle(todo.id)}
-          className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors
-            ${todo.completed 
-              ? 'bg-green-500 border-green-500 hover:bg-green-600' 
-              : 'border-gray-300 hover:border-green-500'
-            // }${darkMode 
-            //   ? 'border-white hover:border-blue-500' 
-            //   : 'border-white hover:border-blue-300'
-            // }
-            }`}
-        >
-          {todo.completed && <Check size={14} className="text-white" />}
-        </button>
+        <Checkbox 
+          checked={todo.completed}
+          onChange={() => onToggle(todo.id)}
+          darkMode={darkMode}
+        />
         
         {isEditing ? (
           <div className="flex-1 flex items-center gap-2">
