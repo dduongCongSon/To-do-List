@@ -4,6 +4,7 @@ import { Todo } from '../types/todo';
 import { Search, Plus, Moon, Sun } from 'lucide-react';
 import TodoItem from './TodoItem';
 import Button from './Button';
+import '../styles/Background.css';
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -79,8 +80,8 @@ const TodoList: React.FC = () => {
   );
 
   return (
-    <div className={`min-h-screen transition-colors duration-200 ${
-      darkMode ? 'bg-gray-900' : 'bg-gray-50'
+    <div className={`min-h-screen transition-colors duration-200 pattern-background ${
+      darkMode ? 'dark' : 'light'
     }`}>
       <div className="max-w-4xl mx-auto p-6">
         {/* Header */}
